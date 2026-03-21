@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umiya Sales and Service | Premium Agricultural Implements</title>
+    <meta name="description" content="Authorized dealer for Shaktiman rotary tillers, seed drills, and agricultural implements in Kukshi.">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Shared CSS Variables */
+        :root {
+            --primary-dark: #162E22; /* Deeper Forest Green */
+            --primary-light: #2A523D;
+            --accent-orange: #FF7B00; 
+            --accent-gradient: linear-gradient(135deg, #FF7B00, #FF9500);
+            --light-bg: #F8FAF9; /* Softer off-white for premium feel */
+            --card-bg: #FFFFFF;
+            --text-main: #334155;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+            --white: #FFFFFF;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth; 
+        }
+
+        body { 
+            background-color: var(--light-bg); 
+            color: var(--text-main); 
+            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Oswald', sans-serif; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header & Nav (Glassmorphism effect) */
+        header { 
+            background-color: rgba(255, 255, 255, 0.92); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: sticky; top: 0; z-index: 1000; padding: 15px 0; 
+            transition: all 0.3s ease;
+        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        
+        .logo a { text-decoration: none; display: flex; align-items: center; gap: 15px; } 
+        .logo-image { max-height: 75px; width: auto; display: block; object-fit: contain; transition: transform 0.3s ease; }
+        .logo-image:hover { transform: scale(1.05) rotate(-2deg); }
+
+        .logo-text h1 { color: var(--primary-dark); font-size: 1.9rem; line-height: 1.1; text-transform: uppercase; letter-spacing: 1px; }
+        .logo-text .hindi-name { font-size: 0.9rem; color: var(--accent-orange); font-weight: 600; margin-bottom: 4px; letter-spacing: 0.5px;}
+        .logo-text .dealer-name { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; background: #F1F5F9; display: inline-block; padding: 3px 10px; border-radius: 20px; border-left: 3px solid var(--accent-orange); }
+
+        .desktop-nav { display: flex; align-items: center; gap: 10px; }
+        .desktop-nav a.nav-link { text-decoration: none; color: var(--text-main); margin: 0 15px; font-weight: 500; font-size: 1.05rem; transition: color 0.3s; position: relative;}
+        .desktop-nav a.nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--accent-orange); transition: width 0.3s ease; }
+        .desktop-nav a.nav-link:hover { color: var(--accent-orange); }
+        .desktop-nav a.nav-link:hover::after { width: 100%; }
+
+        /* Modernized Buttons */
+        .btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-flex; justify-content: center; align-items: center; gap: 8px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; border: none; font-family: 'Inter', sans-serif; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .btn-accent { background: var(--accent-gradient); color: #fff; box-shadow: 0 4px 15px rgba(255, 123, 0, 0.3); }
+        .btn-accent:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 123, 0, 0.4); filter: brightness(1.05); color: #fff; }
+        .btn-outline { background-color: transparent; border: 2px solid var(--primary-dark); color: var(--primary-dark); }
+        .btn-outline:hover { background-color: var(--primary-dark); color: #fff; transform: translateY(-2px); }
+
+        /* Hero Section */
+        .hero { 
+            position: relative;
+            background: linear-gradient(rgba(22, 46, 34, 0.85), rgba(22, 46, 34, 0.75)), url('https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; 
+            color: #fff; padding: 120px 20px; text-align: center; 
+            border-bottom: 5px solid var(--accent-orange);
+        }
+        .hero h2 { font-size: clamp(2.5rem, 5vw, 4.2rem); margin-bottom: 20px; line-height: 1.2; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); letter-spacing: 1px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 650px; margin-left: auto; margin-right: auto; opacity: 0.9; }
+        .hero-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;}
+
+        /* Section Headers */
+        .section-header { text-align: center; margin-bottom: 50px; padding-top: 70px; }
+        .section-header h2 { color: var(--primary-dark); font-size: 2.5rem; margin-bottom: 12px; position: relative; display: inline-block; }
+        .section-header h2::after { content: ''; position: absolute; width: 60px; height: 4px; background: var(--accent-orange); bottom: -10px; left: 50%; transform: translateX(-50%); border-radius: 2px; }
+        .section-header p { color: var(--text-muted); font-size: 1.15rem; max-width: 600px; margin: 20px auto 0; }
+
+        .align-left { text-align: left; padding-top: 0; margin-bottom: 30px; }
+        .align-left h2::after { left: 0; transform: none; }
+        .align-left p { margin: 20px 0 0 0; }
+
+        /* Premium Equipment Grid */
+        .catalog-container { padding-bottom: 70px; } 
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 35px; }
+        .product-card { 
+            background: var(--card-bg); 
+            border-radius: 16px; 
+            overflow: hidden; 
+            box-shadow: var(--shadow-md); 
+            border: 1px solid rgba(0,0,0,0.03); 
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            display: flex; flex-direction: column; 
+            position: relative;
+        }
+        .product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: rgba(255, 123, 0, 0.2); }
+        
+        .image-wrapper { width: 100%; height: 260px; overflow: hidden; padding: 20px; background: #fff; position: relative; border-bottom: 1px solid var(--border-color);}
+        
+        .product-image { 
+            width: 100%; height: 100%; 
+            object-fit: contain; 
+            transition: transform 0.6s ease;
+            mix-blend-mode: darken; /* Magic trick to make white backgrounds disappear */
+        }
+        .product-card:hover .product-image { transform: scale(1.1); }
+        
+        .product-info { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; background: linear-gradient(to bottom, #ffffff, #fdfdfd); }
+        .brand-tag { 
+            font-size: 0.75rem; color: var(--accent-orange); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; 
+            background: rgba(255, 123, 0, 0.1); padding: 5px 12px; border-radius: 20px; align-self: flex-start; margin-bottom: 15px; 
+        }
+        
+        .product-title { font-size: 1.4rem; color: var(--primary-dark); margin-bottom: 25px; line-height: 1.3; flex-grow: 1; font-weight: 600;}
+        
+        .card-actions { display: flex; gap: 12px; margin-top: auto; }
+        .card-actions .btn { flex: 1; padding: 12px 10px; font-size: 0.9rem; }
+
+        /* Stylized Features Section */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .feature-card { 
+            background: var(--card-bg); padding: 40px 25px; border-radius: 16px; text-align: center; 
+            box-shadow: var(--shadow-sm); transition: all 0.3s ease; 
+            border: 1px solid var(--border-color); position: relative; overflow: hidden;
+        }
+        .feature-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent-gradient); transform: scaleX(0); transition: transform 0.3s ease; transform-origin: left; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .feature-card:hover::before { transform: scaleX(1); }
+        .feature-card i { 
+            font-size: 2.5rem; color: var(--primary-light); margin-bottom: 20px; 
+            display: inline-flex; justify-content: center; align-items: center;
+            width: 80px; height: 80px; background: rgba(42, 82, 61, 0.05); border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover i { background: var(--accent-orange); color: white; transform: rotateY(180deg); }
+        .feature-card h3 { margin-bottom: 12px; color: var(--primary-dark); font-size: 1.4rem; }
+        .feature-card p { color: var(--text-muted); font-size: 1rem; }
+
+        /* Contact & Social Layout Grid */
+        .contact-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 50px; 
+            margin-bottom: 80px; 
+            align-items: stretch;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .social-links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;}
+        .social-icon { 
+            display: flex; justify-content: center; align-items: center; 
+            width: 65px; height: 65px; border-radius: 50%; font-size: 1.8rem; 
+            color: var(--white); text-decoration: none; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .facebook { background-color: #1877F2; }
+        .facebook:hover { transform: translateY(-8px); box-shadow: 0 15px 25px rgba(24, 119, 242, 0.3); color: white; }
+        
+        .instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .instagram:hover { transform: translateY(-8px); box-shadow: 0 15px 25px rgba(220, 39, 67, 0.3); color: white; }
+        
+        .whatsapp { background-color: #25D366; }
+        .whatsapp:hover { transform: translateY(-8px); box-shadow: 0 15px 25px rgba(37, 211, 102, 0.3); color: white; }
+        
+        .youtube { background-color: #FF0000; }
+        .youtube:hover { transform: translateY(-8px); box-shadow: 0 15px 25px rgba(255, 0, 0, 0.3); color: white; }
+
+        .map-container {
+            width: 100%;
+            height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed; bottom: 30px; right: 30px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white; border-radius: 50%;
+            width: 65px; height: 65px;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 38px; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000; transition: all 0.3s ease; text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+        .floating-whatsapp:hover { transform: scale(1.1) translateY(-5px); color: white; animation: none; box-shadow: 0 12px 25px rgba(37, 211, 102, 0.5); }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Footer */
+        footer { background: #112218; color: #94A3B8; text-align: center; padding: 40px 20px; font-size: 0.95rem; border-top: 4px solid var(--accent-orange);}
+        footer p { max-width: 600px; margin: 0 auto; line-height: 1.8; }
+
+        /* Mobile Adjustments */
+        .mobile-sticky-cta { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--accent-gradient); display: none; text-align: center; padding: 15px; box-shadow: 0 -5px 20px rgba(0,0,0,0.2); z-index: 999; }
+        .mobile-sticky-cta a { color: #fff; text-decoration: none; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1.3rem; display: flex; justify-content: center; align-items: center; gap: 10px; letter-spacing: 1px;}
+
+        @media (max-width: 768px) {
+            .desktop-nav { display: none; }
+            .mobile-sticky-cta { display: block; }
+            body { padding-bottom: 70px; }
+            .card-actions { flex-direction: column; }
+            .logo a { gap: 10px; }
+            .logo-image { max-height: 55px; } 
+            .logo-text h1 { font-size: 1.4rem; } 
+            .hero { padding: 80px 20px; }
+            .hero h2 { font-size: 2.2rem; }
+            .floating-whatsapp { bottom: 90px; right: 20px; width: 55px; height: 55px; font-size: 30px; }
+            .section-header h2 { font-size: 2rem; }
+            .contact-grid { grid-template-columns: 1fr; gap: 40px; padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <a href="#" aria-label="Home">
+                    <img src="logo.png" alt="Umiya Sales and Service Logo" class="logo-image">
+                    <div class="logo-text">
+                        <h1>Umiya Sales & Service</h1>
+                        <p class="hindi-name">उमिया सेल्स एंड सर्विस</p>
+                        <p class="dealer-name"><i class="fas fa-user-tie"></i> Dealer: MAHESH PATIDAR</p>
+                    </div>
+                </a>
+            </div>
+            <nav class="desktop-nav">
+                <a href="#equipment" class="nav-link">Equipment</a>
+                <a href="#contact" class="nav-link">Connect Us</a>
+                <a href="tel:+919977233958" class="btn btn-accent"><i class="fas fa-phone-alt"></i> Call Dealer</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>शक्तिमान चलेगा तो मुनाफ़ा बदलेगा</h2>
+            <p>Your trusted partner for premium heavy-duty agricultural machinery in Madhya Pradesh.</p>
+            <div class="hero-buttons">
+                <a href="#equipment" class="btn btn-accent"><i class="fas fa-tractor"></i> View Equipment</a>
+                <a href="https://wa.me/919977233958" target="_blank" class="btn btn-outline" style="color:white; border-color:white;"><i class="fab fa-whatsapp"></i> Message Us</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipment" class="catalog-container container">
+        <div class="section-header">
+            <h2>Our Equipment Catalog</h2>
+            <p>Authorized dealership providing the highest quality agricultural implements to boost your farm's productivity.</p>
+        </div>
+        
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7JOXWqpUH1JZ6pXRPRH2gZHlO98NDJd-dOw&s" alt="Shaktiman Regular Light Rotary Tiller" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">Shaktiman</span>
+                    <h3 class="product-title">Regular Light Rotary Tiller</h3>
+                    <div class="card-actions">
+                        <a href="tel:+919977233958" class="btn btn-outline"><i class="fas fa-phone"></i> Call</a>
+                        <a href="https://wa.me/919977233958?text=I'm%20interested%20in%20the%20Regular%20Light%20Rotary%20Tiller" target="_blank" class="btn btn-accent"><i class="fab fa-whatsapp"></i> Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://shaktimanagro.com/wp-content/uploads/2017/03/Shaktiman_Semi_Champion_Plus_Image_9.png" alt="Shaktiman Champion Series Rotavator" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">Shaktiman</span>
+                    <h3 class="product-title">Semi Champion Rotavator</h3>
+                    <div class="card-actions">
+                        <a href="tel:+919977233958" class="btn btn-outline"><i class="fas fa-phone"></i> Call</a>
+                        <a href="https://wa.me/919977233958?text=I'm%20interested%20in%20the%20Semi%20Champion%20Rotavator" target="_blank" class="btn btn-accent"><i class="fab fa-whatsapp"></i> Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2020/8/BC/OT/BT/11075174/shaktiman-svpp-250-pneumatic-planter-500x500.jpg" alt="Pneumatic Planter" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">Shaktiman</span>
+                    <h3 class="product-title">Pneumatic Seed Planter</h3>
+                    <div class="card-actions">
+                        <a href="tel:+919977233958" class="btn btn-outline"><i class="fas fa-phone"></i> Call</a>
+                        <a href="https://wa.me/919977233958?text=I'm%20interested%20in%20the%20Pneumatic%20Seed%20Planter" target="_blank" class="btn btn-accent"><i class="fab fa-whatsapp"></i> Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://i.pinimg.com/736x/5b/6a/5f/5b6a5f0159e0b0eb31c6784d5762060f.jpg" alt="Reversible Mould Board Plough" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">Shaktiman</span>
+                    <h3 class="product-title">Reversible MB Plough</h3>
+                    <div class="card-actions">
+                        <a href="tel:+919977233958" class="btn btn-outline"><i class="fas fa-phone"></i> Call</a>
+                        <a href="https://wa.me/919977233958?text=I'm%20interested%20in%20the%20Reversible%20MB%20Plough" target="_blank" class="btn btn-accent"><i class="fab fa-whatsapp"></i> Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://i.pinimg.com/736x/78/b4/66/78b466acdf01004cdde0e5afb8334ece.jpg" alt="Post Hole Digger" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">Shaktiman</span>
+                    <h3 class="product-title">Tractor Post Hole Digger</h3>
+                    <div class="card-actions">
+                        <a href="tel:+919977233958" class="btn btn-outline"><i class="fas fa-phone"></i> Call</a>
+                        <a href="https://wa.me/919977233958?text=I'm%20interested%20in%20the%20Tractor%20Post%20Hole%20Digger" target="_blank" class="btn btn-accent"><i class="fab fa-whatsapp"></i> Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://i.pinimg.com/736x/37/ea/5c/37ea5c7791df8fede4d11bbfe34cfdce.jpg" alt="Mobile Shredder" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">Shaktiman</span>
+                    <h3 class="product-title">Mobile Crop Shredder</h3>
+                    <div class="card-actions">
+                        <a href="tel:+919977233958" class="btn btn-outline"><i class="fas fa-phone"></i> Call</a>
+                        <a href="https://wa.me/919977233958?text=I'm%20interested%20in%20the%20Mobile%20Crop%20Shredder" target="_blank" class="btn btn-accent"><i class="fab fa-whatsapp"></i> Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2022/10/AB/KZ/AX/9029617/shaktiman-protractor-boom-sprayer.jpeg" alt="Square Baler" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">Shaktiman</span>
+                    <h3 class="product-title">Protector 600</h3>
+                    <div class="card-actions">
+                        <a href="tel:+919977233958" class="btn btn-outline"><i class="fas fa-phone"></i> Call</a>
+                        <a href="https://wa.me/919977233958?text=I'm%20interested%20in%20the%20Protector%20600" target="_blank" class="btn btn-accent"><i class="fab fa-whatsapp"></i> Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://shaktimanagro.com/wp-content/uploads/2024/08/Shaktiman_Rakshak_400_with_Boom_Image_5.png" alt="Rotary Slasher" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">Shaktiman</span>
+                    <h3 class="product-title">Rakshak 400</h3>
+                    <div class="card-actions">
+                        <a href="tel:+919977233958" class="btn btn-outline"><i class="fas fa-phone"></i> Call</a>
+                        <a href="https://wa.me/919977233958?text=I'm%20interested%20in%20the%20Rakshak%20400" target="_blank" class="btn btn-accent"><i class="fab fa-whatsapp"></i> Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://cpimg.tistatic.com/7211320/b/1/4x3-feet-rotary-mulcher-machine.jpg" alt="Boom Sprayer" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">Shaktiman</span>
+                    <h3 class="product-title">Mulcher</h3>
+                    <div class="card-actions">
+                        <a href="tel:+919977233958" class="btn btn-outline"><i class="fas fa-phone"></i> Call</a>
+                        <a href="https://wa.me/919977233958?text=I'm%20interested%20in%20the%20Mulcher" target="_blank" class="btn btn-accent"><i class="fab fa-whatsapp"></i> Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://shaktimanagro.com/wp-content/uploads/2024/08/Shaktiman_Light_Series_Power_Harrow_Pehalwan_Image_1.png" alt="Power Harrow" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">Shaktiman</span>
+                    <h3 class="product-title">Power Harrow</h3>
+                    <div class="card-actions">
+                        <a href="tel:+919977233958" class="btn btn-outline"><i class="fas fa-phone"></i> Call</a>
+                        <a href="https://wa.me/919977233958?text=I'm%20interested%20in%20the%20Power%20Harrow" target="_blank" class="btn btn-accent"><i class="fab fa-whatsapp"></i> Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://www.jangeer.com/img/89/posts/1706334923Multicrop-Thresher.jpg" alt="Jangeer Multicrop Thresher" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">Jangeer</span>
+                    <h3 class="product-title">Multicrop Thresher</h3>
+                    <div class="card-actions">
+                        <a href="tel:+919977233958" class="btn btn-outline"><i class="fas fa-phone"></i> Call</a>
+                        <a href="https://wa.me/919977233958?text=I'm%20interested%20in%20Jangeer%20Thresher" target="_blank" class="btn btn-accent"><i class="fab fa-whatsapp"></i> Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://krishidarshan.co.in/wp-content/uploads/2024/04/14_35HP_Thresher-1-FILEminimizer-1-1024x683.jpg" alt="Krishidarshan Thresher" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="brand-tag">Krishidarshan</span>
+                    <h3 class="product-title">Thresher</h3>
+                    <div class="card-actions">
+                        <a href="tel:+919977233958" class="btn btn-outline"><i class="fas fa-phone"></i> Call</a>
+                        <a href="https://wa.me/919977233958?text=I'm%20interested%20in%20Krishidarshan%20Thresher" target="_blank" class="btn btn-accent"><i class="fab fa-whatsapp"></i> Enquire</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="section-header" style="padding-top: 20px;">
+            <h2>Why Choose Umiya Sales?</h2>
+            <p>We deliver more than just machinery ~ We deliver trust for your farm.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-certificate"></i>
+                <h3>Authorized Dealership</h3>
+                <p>100% genuine machinery directly from the manufacturer with full warranties.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-tools"></i>
+                <h3>Expert Servicing</h3>
+                <p>Our trained mechanics provide fast, reliable repair and maintenance to keep downtime to a minimum.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-cogs"></i>
+                <h3>Original Spare Parts</h3>
+                <p>Fully stocked inventory of authentic parts ensuring the longevity and safety of your equipment.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-truck"></i>
+                <h3>Door to Door Service</h3>
+                <p>We provide convenient on-site maintenance and repairs right at your farm or home for maximum uptime.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <div class="contact-grid">
+            
+            <div class="social-wrapper">
+                <div class="section-header align-left">
+                    <h2>Connect With Us</h2>
+                    <p>Follow our channels for the latest equipment updates, live demos, and farming tips.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/mahesh.patidar.608357" class="social-icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/umiya_sales_kukshii?igsh=YTQwY2lsb3h5Nnpn" target="_blank" class="social-icon instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/919977233958" class="social-icon whatsapp" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://youtube.com/@umiyasalesandserviceskuksh8600?si=3puWzBr60GIH4faW" target="_blank" class="social-icon youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="map-wrapper">
+                <div class="section-header align-left">
+                    <h2>Find Us</h2>
+                    <p>Visit our dealership for a hands-on experience with our heavy-duty machinery.</p>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13738.528719707174!2d74.7469730921218!3d22.20485989338713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3961ed001df72c53%3A0x33826a5b311201e5!2sumiya%20sales%20and%20service!5e0!3m2!1sen!2sin!4v1774086166121!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Umiya Sales and Service Location Map"></iframe>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>© 2026 Umiya Sales and Service.</strong><br> Dealer: Mahesh Patidar | Kukshi-Barwani Hwy, Kukshi, Madhya Pradesh</p>
+    </footer>
+
+    <a href="https://wa.me/919977233958" class="floating-whatsapp" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="mobile-sticky-cta">
+        <a href="tel:+919977233958"><i class="fas fa-tractor"></i> CALL DEALER NOW</a>
+    </div>
+
+</body>
+</html>
